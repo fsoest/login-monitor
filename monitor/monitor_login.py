@@ -48,9 +48,9 @@ def output_dict(may_control: bool, discord_msg: str, website_msg: str, required_
 
 def check_connection(connection: dict, station_data: list[dict], solos: list[dict], t1: list[dict], t2: list[dict],
                      roster: list[dict]) -> dict:
-    # Filter out EDW_APP
-    if connection['callsign'] == 'EDW_APP':
-        return output_dict(True, 'EDW_APP', 'EDW_APP')
+    # Filter out EDW
+    if connection['callsign'] in ['EDW_TWR', 'EDW_APP']:
+        return output_dict(True, 'EDW', 'EDW')
 
     user_has_solo = False
     user_has_t1 = False
